@@ -52,8 +52,38 @@ section{
 .input-container {
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 700px;
+    background: rgb(255,255,255,0.5);
+    border-radius: 60px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+.input-container input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 5px 20px;
+    font-size: 15px;
+    color: var(--main-color);
 }
 
+::placeholder {
+    color: rgb(206, 196, 196);
+}
+
+.input-container button img {
+    width: 25px;
+}
+.input-container button {
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    cursor: pointer;
+}
 
 
 .logo{
