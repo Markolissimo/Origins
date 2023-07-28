@@ -6,6 +6,7 @@
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style: none;
+    scroll-behavior: smooth;
 }
 :root {
     --bg-color: rgb(18, 18, 18); 
@@ -27,17 +28,16 @@ header {
     align-items: center;
     justify-content: space-between;
     background: transparent;
-    padding: 28px 12%;
+    padding: 28px 11%;
     transition: all .50s ease;
 }
 section{
     padding: 120px 19% 100px;
-    
-}
-.home {
     position: relative;
     min-height: 100vh;
     width: 100%;
+}
+.home {
     background-image: url('/static/images/mountains.jpg');
     background-size: cover;
     display: flex;
@@ -46,18 +46,30 @@ section{
     justify-content: center;
     padding-bottom: 20rem;
 }
+
 .home h1 {
     font-size: 40px;
+}
+.home h3 {
+    margin: 10px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .input-container {
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 700px;
+    min-width: 290px;
     background: rgb(255,255,255,0.5);
     border-radius: 60px;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .input-container input {
     background: transparent;
@@ -83,12 +95,14 @@ section{
     height: 35px;
     background: transparent;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 
 .logo{
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 .logo i {
     color: var(--main-color);
@@ -102,6 +116,8 @@ section{
 }
 .navbar {
     display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 .navbar a{
     color: var(--text-color);
@@ -109,6 +125,7 @@ section{
     font-weight: 500;
     padding: 5px 0;
     margin: 0px 30px;
+    justify-content: right;
     transition: all .50s ease;
 }
 .navbar a:hover{
@@ -146,7 +163,7 @@ section{
     }
 }
 
-@media(max-width: 1090px){
+@media(max-width: 800px){
     #menu-icon {
         display: block;
     }
@@ -174,5 +191,19 @@ section{
         .navbar.open {
             right: 2%;
         }
+
+}
+
+
+
+.scroll-bttn i{
+    position: fixed;
+    right: 2.2rem;
+    bottom: 2.2rem;
+    color: var(--text-color);
+    background: var(--main-color);
+    font-size: 23px;
+    padding: 9px;
+    border-radius: 0.8rem;
 
 }

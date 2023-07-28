@@ -13,29 +13,36 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo"> 
+        <a href="mainpage.html" class="logo"> 
             <i class="ri-home-line"></i>
             <span>Origins</span>
         </a>
         <ul class="navbar">
-            <li><a href="" class="active">Home</a></li>
-            <li><a href="">How to use</a></li>
-            <li><a href="">Info</a></li>
+            <li><a href="#home" >Home</a></li>
+            <li><a href="#howtouse">How to use</a></li>
+            <li><a href="song.html">Info</a></li>
             <li><a href="">Presentation</a></li>
         </ul>
         <div class="main">
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
-    <section class="home">
+    <section class="home" id="home">
         <h1>Походження пісні всього в один клік!</h1>
-    
+        <h3>Можливість ввести назву, YouTube, Spotify посилання 
+            й знайти оригінал пісні та її історію!</h3>
+    <form action="">
         <div class="input-container">
-            <input type="text" placeholder="напр." autofocus="autofocus">
+            <input type="text" placeholder="напр. Червона рута" autofocus="autofocus">
             <button type="submit"><img src="/static/images/search.png"></button>
         </div>
-  
+    </form>
     </section>
+    <section class="howtouse" id="howtouse">
+
+    </section>
+
+    <a href="#" class="scroll-bttn" id="scrollButton"> <i class="bx bx-chevron-up"></i></a>
     <script src="/static/js/mainpage.js"></script>
 </body>
 </html>
