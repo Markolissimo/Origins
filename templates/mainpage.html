@@ -31,9 +31,9 @@
         <h1>Походження пісні всього в один клік!</h1>
         <h3>Можливість ввести назву, YouTube, Spotify посилання 
             й знайти оригінал пісні та її історію!</h3>
-    <form action="">
+    <form action="/song-info" method="POST">
         <div class="input-container">
-            <input type="text" placeholder="напр. Червона рута" autofocus="autofocus">
+            <input type="text" name="song_name" placeholder="напр. Червона рута" autofocus="autofocus">
             <button type="submit"><img src="/static/images/search.png"></button>
         </div>
     </form>
