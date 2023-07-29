@@ -13,6 +13,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials)
 def home():
     return render_template('mainpage.html')
 
+
 @app.route('/song-info', methods=['POST'])
 def song_info():
     song_name = request.form.get('song_name')
@@ -20,8 +21,6 @@ def song_info():
 
     if result and 'tracks' in result and 'items' in result['tracks']:
         original_tracks = []
-        similar_songs = []
-
         for track in result['tracks']['items']:
             track_info = {
                 'song_name': track['name'],
@@ -33,12 +32,11 @@ def song_info():
 
             if track_info not in original_tracks:
                 original_tracks.append(track_info)
-            else:
-                similar_songs.append(track_info)
-
         if original_tracks:
-            return render_template('song.html', original_track=original_tracks[0], similar_songs=similar_songs)
-
+            return render_template('song.html', 
+            original_track=original_tracks[0],
+            similar_songs=original_tracks[1:9])
+    
     return jsonify({'error': 'Song not found'}), 404
 
 if __name__ == '__main__':
