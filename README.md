@@ -15,4 +15,41 @@
 - Spotify API
 
 ### Додаткові посилання:
-![Презентація]([https://tleapps.com](https://www.canva.com/design/DAFqAsibWPY/1_JWs26-PLdOU5XwjC8IjQ/edit?utm_content=DAFqAsibWPY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)https://www.canva.com/design/DAFqAsibWPY/1_JWs26-PLdOU5XwjC8IjQ/edit?utm_content=DAFqAsibWPY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Презентація](https://www.canva.com/design/DAFqAsibWPY/1_JWs26-PLdOU5XwjC8IjQ/edit?utm_content=DAFqAsibWPY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+### Як запустити проєкт?
+
+Спершу перевірте чи у Вас наявний Python
+
+ ``` python --version ``` 
+ 
+Далі склонуйте цей репозиторій, перед цим створивши папку
+
+ ``` git clone https://github.com/clar1k/origins.git ім'я папки ``` 
+
+Потім вам треба буде створити аккаунт на https://developer.spotify.com, та створити 'env.dev' файл у кореневій директорії і там задати значення для SPOTIFY_CLIENT_ID
+
+ Після цього вписуйте почергово наступні команди
+
+ ``` python -m venv .venv\Scripts\Activate.ps1 ``` 
+ 
+ ``` pip install -r requirements.txt ``` 
+
+ ``` python app.py ``` 
+
+ Запуститься сервер, посилання на яке має виглядати приблизно так:
+
+  ``` http://127.0.0.1:5000/ ```
+
+Вставляєте в браузер чи натискаєте на своє створене посилання комбінацією Ctrl + Right click
+
+**Приємного користування!**
+
+
+
+ 
+ 
+
+
+
+
