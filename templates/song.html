@@ -33,18 +33,45 @@
 
     <section class="original-song">
         <div class="about-img">
-            <img src="/static/images/ivasyuk.jpg" alt="">
+            <img src="{{ original_track.cover_image }}" alt="">
         </div>
         <div class="about-text">
-            <h2>Червона рута</h2>
-            <h5>Володимир Івасюк</h5>
+            <h2>{{ original_track.song_name }}</h2>
+            <h5>{{ original_track.artist }}</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo iure culpa eaque tempore non qui ullam harum,
             ipsum iste sint nam vel, tempora molestiae aliquid minus magni necessitatibus? Itaque, in!</p>
             <p>Слухати на платформах:</p>
-            <button><img src="/static/images/youtube-music-logo.png"></button>
-            <button><img src="/static/images/spotify.png"></button>
+            <a
+                    class="link-logo"
+                    href=""
+                    target="_blank">
+                <img src="/static/images/youtube-music-logo.png" alt="">
+            </a>
+            <a
+                    class="link-logo"
+                    href="{{ original_track.url }}"
+                    target="_blank">
+                <img src="/static/images/spotify.png" alt="">
+            </a>
         </div>
     </section>
+
+    <script>
+        document.getElementById("spotify-button").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/song-info", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                } else if (xhr.readyState === XMLHttpRequest.DONE) {
+                }
+            };
+            var song_name = "{{ original_track.song_name }}";
+            var data = "song_name=" + encodeURIComponent(song_name);
+            xhr.send(data);
+        });
+    </script>
 
     <section class="another-songs">
         <h1 class="title">Хронографія використання пісні</h1>

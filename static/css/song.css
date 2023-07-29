@@ -27,7 +27,7 @@
     line-height: 1.4;
 }
 
-.about-text button {
+.about-text .link-logo {
     border: 0;
     border-radius: 50%;
     width: 200px;
@@ -35,8 +35,14 @@
     background: transparent;
     cursor: pointer;
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
 }
-.about-text button img {
+
+.about-text .link-logo img {
     width: 80%;
     font-size: 50px;
 }
