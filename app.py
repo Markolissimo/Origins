@@ -1,7 +1,9 @@
+from datetime import datetime
 from flask import Flask, render_template, request, jsonify
 from config import Config
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -14,11 +16,16 @@ def home():
     return render_template('mainpage.html')
 
 
+def custom_date_parser(date_str):
+    if len(date_str) == 4:
+        return datetime.strptime(date_str + '-01-01', '%Y-%m-%d')
+    else:
+        return datetime.strptime(date_str, '%Y-%m-%d')
+
 @app.route('/song-info', methods=['POST'])
 def song_info():
     song_name = request.form.get('song_name')
     result = sp.search(q=song_name, limit=10)
-
     if result and 'tracks' in result and 'items' in result['tracks']:
         original_tracks = []
         for track in result['tracks']['items']:
@@ -29,15 +36,14 @@ def song_info():
                 'url': track['external_urls']['spotify'],
                 'cover_image': track['album']['images'][0]['url']
             }
-
             if track_info not in original_tracks:
                 original_tracks.append(track_info)
+        original_tracks.sort(key=lambda x: custom_date_parser(x['release_date']))
         if original_tracks:
             return render_template('song.html', 
-            original_track=original_tracks[0],
-            similar_songs=original_tracks[1:9])
-    
-    return jsonify({'error': 'Song not found'}), 404
+                original_track=original_tracks[0],
+                similar_songs=original_tracks[1:9])
+
 
 if __name__ == '__main__':
     app.run(debug=True)
